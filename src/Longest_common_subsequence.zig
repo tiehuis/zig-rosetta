@@ -75,7 +75,9 @@ fn lcs(allocator: *std.mem.Allocator, a: []const u8, b: []const u8) ![]u8 {
 }
 
 pub fn main() !void {
-    var allocator = std.heap.c_allocator;
+    var direct = std.heap.DirectAllocator.init();
+    var allocator = &direct.allocator;
+
     const s = try lcs(allocator, "thisisatest", "testing123testing");
     std.debug.warn("{}\n", s);
 }
