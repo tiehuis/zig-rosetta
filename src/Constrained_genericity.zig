@@ -27,7 +27,7 @@ fn FoodBox(comptime T: type) type {
     }
 
     return struct {
-        const Self = this;
+        const Self = @This();
 
         pub fn init() Self {
             return Self{};

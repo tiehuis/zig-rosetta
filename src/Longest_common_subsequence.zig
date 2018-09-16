@@ -2,7 +2,7 @@ const std = @import("std");
 
 fn TwoDim(comptime T: type) type {
     return struct {
-        const Self = this;
+        const Self = @This();
         allocator: *std.mem.Allocator,
         items: []T,
         stride: usize,
