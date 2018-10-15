@@ -1,12 +1,12 @@
 const std = @import("std");
 
-const Lcg = struct {
+const Lcg = struct.{
     const rand_max = (1 << 31) - 1;
 
     r: u32,
 
     pub fn init(seed: u32) Lcg {
-        return Lcg{ .r = seed };
+        return Lcg.{ .r = seed };
     }
 
     pub fn reseed(self: *Lcg, seed: u32) void {

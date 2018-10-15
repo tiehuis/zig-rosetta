@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const Point = struct {
+const Point = struct.{
     x: f64,
     y: f64,
 };
@@ -37,17 +37,17 @@ fn ramerDouglasPeucker(out: []Point, line: []const Point, epsilon: f64) []Point 
 }
 
 pub fn main() void {
-    var line = []Point{
-        Point{ .x = 0, .y = 0 },
-        Point{ .x = 1, .y = 0.1 },
-        Point{ .x = 2, .y = -0.1 },
-        Point{ .x = 3, .y = 5 },
-        Point{ .x = 4, .y = 6 },
-        Point{ .x = 5, .y = 7 },
-        Point{ .x = 6, .y = 8.1 },
-        Point{ .x = 7, .y = 9 },
-        Point{ .x = 8, .y = 9 },
-        Point{ .x = 9, .y = 9 },
+    var line = []Point.{
+        Point.{ .x = 0, .y = 0 },
+        Point.{ .x = 1, .y = 0.1 },
+        Point.{ .x = 2, .y = -0.1 },
+        Point.{ .x = 3, .y = 5 },
+        Point.{ .x = 4, .y = 6 },
+        Point.{ .x = 5, .y = 7 },
+        Point.{ .x = 6, .y = 8.1 },
+        Point.{ .x = 7, .y = 9 },
+        Point.{ .x = 8, .y = 9 },
+        Point.{ .x = 9, .y = 9 },
     };
 
     var output: [line.len]Point = undefined;

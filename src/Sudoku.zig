@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const sudoku = struct {
+const sudoku = struct.{
     fn isValid(b: []const u8, i: usize, v: u8) bool {
         var j: usize = undefined;
 
@@ -59,7 +59,7 @@ const sudoku = struct {
 };
 
 pub fn main() void {
-    var problem = []u8{
+    var problem = []u8.{
         8, 5, 0, 0, 0, 2, 4, 0, 0,
         7, 2, 0, 0, 0, 0, 0, 0, 9,
         0, 0, 4, 0, 0, 0, 0, 0, 0,

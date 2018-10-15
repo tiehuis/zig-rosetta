@@ -26,20 +26,20 @@ fn FoodBox(comptime T: type) type {
         @compileError("Type " ++ @typeName(T) ++ " does not have required function `eat`");
     }
 
-    return struct {
+    return struct.{
         const Self = @This();
 
         pub fn init() Self {
-            return Self{};
+            return Self.{};
         }
     };
 }
 
-const Carrot = struct {
+const Carrot = struct.{
     fn eat() void {}
 };
 
-const Car = struct {};
+const Car = struct.{};
 
 pub fn main() void {
     const box1 = FoodBox(Carrot).init();

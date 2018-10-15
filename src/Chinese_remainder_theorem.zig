@@ -46,8 +46,8 @@ fn chineseRemainder(n: []const usize, a: []const usize) usize {
 }
 
 pub fn main() void {
-    const n = []usize{ 3, 5, 7 };
-    const a = []usize{ 2, 3, 2 };
+    const n = []usize.{ 3, 5, 7 };
+    const a = []usize.{ 2, 3, 2 };
 
     std.debug.warn("{}\n", chineseRemainder(n[0..], a[0..]));
 }

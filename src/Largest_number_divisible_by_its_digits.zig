@@ -1,7 +1,7 @@
 const std = @import("std");
 
 fn base2() u64 {
-    const diff = []u64{ 4, 2, 2, 2 };
+    const diff = []u64.{ 4, 2, 2, 2 };
 
     var k: usize = 0;
     var n: u64 = 9876432;
@@ -61,7 +61,7 @@ fn base16() u64 {
         }
 
         var sd: [32]u8 = undefined;
-        var found = []bool{false} ** 16;
+        var found = []bool.{false} ** 16;
         var len: usize = 0;
 
         for (s) |c| {

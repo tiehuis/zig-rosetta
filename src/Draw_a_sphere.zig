@@ -4,13 +4,13 @@ const math = std.math;
 const shades = ".:!*oe&#%@";
 const light = Vec3.new(30, 30, -50).norm();
 
-const Vec3 = struct {
+const Vec3 = struct.{
     x: f64,
     y: f64,
     z: f64,
 
     fn new(x: f64, y: f64, z: f64) Vec3 {
-        return Vec3{ .x = x, .y = y, .z = z };
+        return Vec3.{ .x = x, .y = y, .z = z };
     }
 
     fn norm(v: Vec3) Vec3 {

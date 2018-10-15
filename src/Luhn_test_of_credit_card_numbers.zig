@@ -5,7 +5,7 @@ fn digit(s: u8) ?u8 {
 }
 
 fn luhn(id: []const u8) bool {
-    const mapping = []const u8{ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
+    const mapping = []const u8.{ 0, 2, 4, 6, 8, 1, 3, 5, 7, 9 };
 
     var odd = true;
     var sum: usize = 0;
@@ -20,7 +20,7 @@ fn luhn(id: []const u8) bool {
 }
 
 pub fn main() void {
-    const ids = [][]const u8{
+    const ids = [][]const u8.{
         "49927398716",
         "49927398717",
         "1234567812345678",

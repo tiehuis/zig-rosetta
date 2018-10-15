@@ -11,6 +11,6 @@ fn print(e: u8, i: usize) void {
 }
 
 pub fn main() void {
-    const array = []u8{ 1, 2, 3, 4 };
+    const array = []u8.{ 1, 2, 3, 4 };
     apply(u8, array, print);
 }

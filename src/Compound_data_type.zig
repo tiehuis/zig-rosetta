@@ -1,5 +1,5 @@
 fn Point(comptime T: type) type {
-    return struct {
+    return struct.{
         x: T,
         y: T,
     };
@@ -7,3 +7,5 @@ fn Point(comptime T: type) type {
 
 const IntPoint = Point(i32);
 const FloatPoint = Point(f32);
+
+pub fn main() void {}

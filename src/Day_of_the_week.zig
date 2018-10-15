@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const Day = enum {
+const Day = enum.{
     Sunday,
     Monday,
     Tuesday,

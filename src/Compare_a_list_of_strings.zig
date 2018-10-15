@@ -21,12 +21,12 @@ fn stringsAreInAscendingOrder(list: []const []const u8) bool {
 }
 
 pub fn main() void {
-    const lists = [][]const []const u8{
-        [][]const u8{ "AA", "BB", "CC" },
-        [][]const u8{ "AA", "AA", "AA" },
-        [][]const u8{ "AA", "CC", "BB" },
-        [][]const u8{ "AA", "ACB", "BB", "CC" },
-        [][]const u8{"single_element"},
+    const lists = [][]const []const u8.{
+        [][]const u8.{ "AA", "BB", "CC" },
+        [][]const u8.{ "AA", "AA", "AA" },
+        [][]const u8.{ "AA", "CC", "BB" },
+        [][]const u8.{ "AA", "ACB", "BB", "CC" },
+        [][]const u8.{"single_element"},
     };
 
     for (lists) |list| {

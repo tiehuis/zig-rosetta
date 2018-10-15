@@ -13,7 +13,7 @@ fn shuffle(comptime T: type, a: []T) void {
 }
 
 pub fn main() void {
-    var s = []u8{ 0, 1, 2, 3, 4 };
+    var s = []u8.{ 0, 1, 2, 3, 4 };
 
     shuffle(u8, s[0..]);
 

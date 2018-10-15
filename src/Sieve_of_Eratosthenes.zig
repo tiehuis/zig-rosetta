@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const Sieve = struct {
+const Sieve = struct.{
     allocator: *std.mem.Allocator,
     bits: []usize,
 
@@ -29,7 +29,7 @@ const Sieve = struct {
             }
         }
 
-        return Sieve{
+        return Sieve.{
             .allocator = allocator,
             .bits = bits,
         };
@@ -48,7 +48,7 @@ pub fn main() !void {
     const sieve = try Sieve.init(std.debug.global_allocator, 1000);
     defer sieve.deinit();
 
-    const s = []usize{ 2, 4, 5, 9, 97, 123, 124, 542, 997 };
+    const s = []usize.{ 2, 4, 5, 9, 97, 123, 124, 542, 997 };
 
     for (s) |e| {
         std.debug.warn("{}: {}\n", e, sieve.isPrime(e));

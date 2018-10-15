@@ -5,7 +5,7 @@ fn isLeapYear(y: var) bool {
 }
 
 fn lastFridaysOfYear(y: usize) void {
-    const months = []usize{ 31, usize(28) + @boolToInt(isLeapYear(y)), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    const months = []usize.{ 31, usize(28) + @boolToInt(isLeapYear(y)), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     var w = y * 365 + (y - 1) / 4 - (y - 1) / 100 + (y - 1) / 400 + 6;
     for (months) |days, m| {

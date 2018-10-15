@@ -28,9 +28,9 @@ pub fn main() !void {
     var allocator = std.debug.global_allocator;
 
     // 18446744073709551616
-    const s1 = []const Digit{ 0, 0, 1 };
+    const s1 = []const Digit.{ 0, 0, 1 };
     // 340282366920938463463374607431768211456
-    const s2 = []const Digit{ 0, 0, 0, 0, 1 };
+    const s2 = []const Digit.{ 0, 0, 0, 0, 1 };
 
     const r = try mul(allocator, s1, s1);
     std.debug.assert(std.mem.eql(Digit, r, s2));

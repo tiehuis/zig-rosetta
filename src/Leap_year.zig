@@ -5,7 +5,7 @@ fn isLeapYear(y: var) bool {
 }
 
 pub fn main() void {
-    const cases = []u32{
+    const cases = []u32.{
         1900, 1994, 1996, 1997, 2000,
     };
 

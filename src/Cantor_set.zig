@@ -3,7 +3,7 @@ const std = @import("std");
 const W = 81;
 const H = 5;
 
-var lines = [][W]u8{[]u8{'#'} ** W} ** H;
+var lines = [][W]u8.{[]u8.{'#'} ** W} ** H;
 
 fn cantor(start: usize, len: usize, index: usize) void {
     var seg = len / 3;

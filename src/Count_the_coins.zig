@@ -47,11 +47,11 @@ pub fn main() void {
     defer direct.deinit();
     var allocator = &direct.allocator;
 
-    const coin_sets = [][]const usize{
+    const coin_sets = [][]const usize.{
         // us coins
-        []const usize{ 100, 50, 25, 10, 5, 1 },
+        []const usize.{ 100, 50, 25, 10, 5, 1 },
         // eu coins
-        []const usize{ 200, 100, 50, 20, 10, 5, 2, 1 },
+        []const usize.{ 200, 100, 50, 20, 10, 5, 2, 1 },
     };
 
     for (coin_sets) |coins| {

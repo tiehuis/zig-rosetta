@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const Period = struct {
+const Period = struct.{
     s: []const u8,
     v: u32,
 };
@@ -8,12 +8,12 @@ const Period = struct {
 fn secondsToString(buffer: []u8, seconds: u32) []u8 {
     std.debug.assert(buffer.len >= 32);
 
-    const periods = []Period{
-        Period{ .s = "wk", .v = 604800 },
-        Period{ .s = "d", .v = 86400 },
-        Period{ .s = "hr", .v = 3600 },
-        Period{ .s = "min", .v = 60 },
-        Period{ .s = "sec", .v = 1 },
+    const periods = []Period.{
+        Period.{ .s = "wk", .v = 604800 },
+        Period.{ .s = "d", .v = 86400 },
+        Period.{ .s = "hr", .v = 3600 },
+        Period.{ .s = "min", .v = 60 },
+        Period.{ .s = "sec", .v = 1 },
     };
 
     var rem = seconds;

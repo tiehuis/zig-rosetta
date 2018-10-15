@@ -28,8 +28,8 @@ fn maxSubSeq(comptime T: type, seq: []const T) []const T {
 }
 
 pub fn main() void {
-    const a1 = []isize{ -1, -2, 3, 5, 6, -2, -1, 4, -4, 2, -1 };
-    const a2 = []isize{ -1, -2, -3, -5, -6, -2, -1, -4, -4, -2, -1 };
+    const a1 = []isize.{ -1, -2, 3, 5, 6, -2, -1, 4, -4, 2, -1 };
+    const a2 = []isize.{ -1, -2, -3, -5, -6, -2, -1, -4, -4, -2, -1 };
 
     std.debug.warn("[ ");
     for (maxSubSeq(isize, a1)) |e| {

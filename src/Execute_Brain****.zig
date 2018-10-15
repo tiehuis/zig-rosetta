@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const IrNode = union(enum) {
+const IrNode = union(enum).{
     Addp: usize,
     Subp: usize,
     Add: u8,
@@ -28,38 +28,38 @@ fn compileBrainfuck(allocator: *std.mem.Allocator, program: []const u8) ![]IrNod
                 while (i + 1 < program.len and program[i + 1] == '>') : (i += 1) {
                     c += 1;
                 }
-                try nodes.append(IrNode{ .Addp = c });
+                try nodes.append(IrNode.{ .Addp = c });
             },
             '<' => {
                 var c: usize = 1;
                 while (i + 1 < program.len and program[i + 1] == '<') : (i += 1) {
                     c += 1;
                 }
-                try nodes.append(IrNode{ .Subp = c });
+                try nodes.append(IrNode.{ .Subp = c });
             },
             '+' => {
                 var c: u8 = 1;
                 while (i + 1 < program.len and program[i + 1] == '+') : (i += 1) {
                     c +%= 1;
                 }
-                try nodes.append(IrNode{ .Add = c });
+                try nodes.append(IrNode.{ .Add = c });
             },
             '-' => {
                 var c: u8 = 1;
                 while (i + 1 < program.len and program[i + 1] == '-') : (i += 1) {
                     c +%= 1;
                 }
-                try nodes.append(IrNode{ .Sub = c });
+                try nodes.append(IrNode.{ .Sub = c });
             },
             '.' => try nodes.append(IrNode.Write),
             ',' => try nodes.append(IrNode.Read),
             '[' => {
                 try jump_stack.append(nodes.len);
-                try nodes.append(IrNode{ .Jz = undefined });
+                try nodes.append(IrNode.{ .Jz = undefined });
             },
             ']' => {
                 const entry = jump_stack.popOrNull() orelse return error.UnmatchedBrackets;
-                try nodes.append(IrNode{ .Jnz = entry });
+                try nodes.append(IrNode.{ .Jnz = entry });
                 nodes.items[entry].Jz = nodes.len - 1;
             },
             else => {},
@@ -76,11 +76,11 @@ fn compileBrainfuck(allocator: *std.mem.Allocator, program: []const u8) ![]IrNod
 fn executeBrainfuck(
     comptime tape_length: usize,
     allocator: *std.mem.Allocator,
-    in: *std.io.FileInStream.Stream,
-    out: *std.io.FileOutStream.Stream,
+    in: *std.io.InStream(std.os.File.ReadError),
+    out: *std.io.OutStream(std.os.File.WriteError),
     program: []const u8,
 ) !void {
-    var memory = []u8{0} ** tape_length;
+    var memory = []u8.{0} ** tape_length;
     var mp: usize = 0;
     var pc: usize = 0;
 
@@ -116,16 +116,18 @@ fn executeBrainfuck(
 pub fn main() !void {
     var allocator = std.debug.global_allocator;
 
-    var stdin_file = try std.io.getStdIn();
-    var stdin = std.io.FileInStream.init(stdin_file);
-
     var stdout_file = try std.io.getStdOut();
-    var stdout = std.io.FileOutStream.init(stdout_file);
+    var stdout_out_stream = stdout_file.outStream();
+    var stdout = &stdout_out_stream.stream;
+
+    var stdin_file = try std.io.getStdIn();
+    var stdin_in_stream = stdin_file.inStream();
+    var stdin = &stdin_in_stream.stream;
 
     const hello_world_program =
         \\>++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>
         \\>+++++++.<<<[[-]<[-]>]<+++++++++++++++.>>.+++.------.--------.>>+.>++++.
     ;
 
-    try executeBrainfuck(30000, allocator, &stdin.stream, &stdout.stream, hello_world_program);
+    try executeBrainfuck(30000, allocator, stdin, stdout, hello_world_program);
 }

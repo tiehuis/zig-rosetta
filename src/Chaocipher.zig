@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const ChaoMode = enum {
+const ChaoMode = enum.{
     Encrypt,
     Decrypt,
 };

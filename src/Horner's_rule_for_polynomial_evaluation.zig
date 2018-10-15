@@ -9,6 +9,6 @@ fn horner(c: []const f64, v: f64) f64 {
 }
 
 pub fn main() void {
-    const c = []const f64{ -19, 7, -4, 6 };
+    const c = []const f64.{ -19, 7, -4, 6 };
     std.debug.warn("{.5}\n", horner(c, 3.0));
 }

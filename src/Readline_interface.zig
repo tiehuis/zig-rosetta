@@ -19,7 +19,7 @@ pub fn main() u8 {
             _ = c.puts(c"commands: ls, cat, quit");
         } else if (c.strcmp(s, c"ls") == 0 or c.strcmp(s, c"cat") == 0) {
             _ = c.printf(c"command `%s' not implemented yet.\n", s);
-            c.add_history(s);
+            _ = c.add_history(s);
         } else {
             _ = c.puts(c"Yes...?");
         }

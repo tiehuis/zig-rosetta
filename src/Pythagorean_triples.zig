@@ -1,12 +1,12 @@
 const std = @import("std");
 
-const TripleCount = struct {
+const TripleCount = struct.{
     prims: u64,
     total: u64,
 };
 
 fn countTriples(x: u64, y: u64, z: u64, limit: u64) TripleCount {
-    var count = TripleCount{
+    var count = TripleCount.{
         .prims = 0,
         .total = 0,
     };

@@ -1,14 +1,14 @@
 const std = @import("std");
 
 fn Entry(comptime T: type) type {
-    return struct {
+    return struct.{
         const Self = @This();
 
         value: T,
         weight: isize,
 
         fn new(value: T, weight: isize) Self {
-            return Self{
+            return Self.{
                 .value = value,
                 .weight = weight,
             };
@@ -42,7 +42,7 @@ fn subsum(comptime T: type, allocator: *std.mem.Allocator, items: []const Entry(
 
 const E = Entry([]const u8);
 
-const entries = []const E{
+const entries = []const E.{
     E.new("alliance", -624),
     E.new("archbishop", -915),
     E.new("balm", 397),

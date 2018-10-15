@@ -1,7 +1,7 @@
 const std = @import("std");
 
 fn TwoDim(comptime T: type) type {
-    return struct {
+    return struct.{
         const Self = @This();
         allocator: *std.mem.Allocator,
         items: []T,
@@ -11,7 +11,7 @@ fn TwoDim(comptime T: type) type {
             var items = try allocator.alloc(T, x * y);
             std.mem.set(T, items, 0);
 
-            return Self{
+            return Self.{
                 .allocator = allocator,
                 .items = items,
                 .stride = x,

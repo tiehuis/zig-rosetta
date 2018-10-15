@@ -2,8 +2,8 @@ const std = @import("std");
 
 // Assumes input and output slices are all equal length.
 fn Matrix(comptime T: type, comptime M: usize, comptime N: usize) type {
-    return struct {
-        pub const ops = struct {
+    return struct.{
+        pub const ops = struct.{
             fn add(a: T, b: T) T {
                 return a + b;
             }
@@ -62,14 +62,14 @@ fn Matrix(comptime T: type, comptime M: usize, comptime N: usize) type {
 pub fn main() void {
     const matrix = Matrix(f32, 3, 2);
 
-    const m1 = [][]const f32{
-        []const f32{ 3, 1, 4 },
-        []const f32{ 1, 5, 9 },
+    const m1 = [][]const f32.{
+        []const f32.{ 3, 1, 4 },
+        []const f32.{ 1, 5, 9 },
     };
 
-    const m2 = [][]const f32{
-        []const f32{ 2, 7, 1 },
-        []const f32{ 8, 2, 8 },
+    const m2 = [][]const f32.{
+        []const f32.{ 2, 7, 1 },
+        []const f32.{ 8, 2, 8 },
     };
 
     var r = matrix.new();

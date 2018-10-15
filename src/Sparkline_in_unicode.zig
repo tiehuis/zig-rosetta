@@ -1,7 +1,7 @@
 const std = @import("std");
 
 fn sparkline(n: []const f64) void {
-    const lines = [][]const u8{
+    const lines = [][]const u8.{
         "▁",
         "▂",
         "▃",
@@ -31,8 +31,8 @@ fn sparkline(n: []const f64) void {
 }
 
 pub fn main() void {
-    const n1 = []f64{ 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1 };
-    const n2 = []f64{ 1.5, 0.5, 3.5, 2.5, 5.5, 4.5, 7.5, 6.5 };
+    const n1 = []f64.{ 1, 2, 3, 4, 5, 6, 7, 8, 7, 6, 5, 4, 3, 2, 1 };
+    const n2 = []f64.{ 1.5, 0.5, 3.5, 2.5, 5.5, 4.5, 7.5, 6.5 };
 
     sparkline(n1);
     sparkline(n2);

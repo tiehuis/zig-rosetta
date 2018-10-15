@@ -12,11 +12,9 @@ fn metronome(bpm: usize, bpb: usize) void {
             std.debug.warn(" tick");
         }
 
-        // TODO: This interface is way too ugly. Take only nanoseconds and expose some constants so
-        // the call can become `time.sleep(ms * time.milliseconds)`;
         time.sleep(
-            ms / time.ms_per_s,
-            @floatToInt(usize, (time.ns_per_s * (@intToFloat(f64, ms) / time.ms_per_s))) % time.ns_per_s,
+            ms +
+            @floatToInt(usize, (time.nanosecond * (@intToFloat(f64, ms) / time.millisecond))) % time.nanosecond,
         );
     }
 }

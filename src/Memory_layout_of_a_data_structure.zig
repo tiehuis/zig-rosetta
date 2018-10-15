@@ -1,6 +1,6 @@
 const std = @import("std");
 
-const RS232 = packed struct {
+const RS232 = packed struct.{
     carrier_detect: u1,
     received_data: u1,
     transmitted_data: u1,
