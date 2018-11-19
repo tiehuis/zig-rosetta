@@ -76,8 +76,8 @@ fn compileBrainfuck(allocator: *std.mem.Allocator, program: []const u8) ![]IrNod
 fn executeBrainfuck(
     comptime tape_length: usize,
     allocator: *std.mem.Allocator,
-    in: *std.io.FileInStream.Stream,
-    out: *std.io.FileOutStream.Stream,
+    in: *std.os.File.InStream.Stream,
+    out: *std.os.File.OutStream.Stream,
     program: []const u8,
 ) !void {
     var memory = []u8{0} ** tape_length;
@@ -117,10 +117,10 @@ pub fn main() !void {
     var allocator = std.debug.global_allocator;
 
     var stdin_file = try std.io.getStdIn();
-    var stdin = std.io.FileInStream.init(stdin_file);
+    var stdin = stdin_file.inStream();
 
     var stdout_file = try std.io.getStdOut();
-    var stdout = std.io.FileOutStream.init(stdout_file);
+    var stdout = stdout_file.outStream();
 
     const hello_world_program =
         \\>++++++++[<+++++++++>-]<.>>+>+>++>[-]+<[>[->+<<++++>]<<]>.+++++++..+++.>

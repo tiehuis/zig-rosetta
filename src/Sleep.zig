@@ -1,6 +1,6 @@
 const std = @import("std");
+const time = std.os.time;
 
 pub fn main() void {
-    // 1 second + 100 nanoseconds
-    std.os.time.sleep(1, 100);
+    std.os.time.sleep(1 * time.second + 100 * time.nanosecond);
 }

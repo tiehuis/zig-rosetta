@@ -1,6 +1,6 @@
 const std = @import("std");
 
-fn hq9p(stream: *std.io.FileOutStream.Stream, program: []const u8) !void {
+fn hq9p(stream: *std.os.File.OutStream.Stream, program: []const u8) !void {
     var acc: usize = 0;
     for (program) |p| {
         switch (p) {
@@ -26,6 +26,6 @@ fn hq9p(stream: *std.io.FileOutStream.Stream, program: []const u8) !void {
 
 pub fn main() !void {
     var stdout = try std.io.getStdOut();
-    var out_stream = std.io.FileOutStream.init(stdout);
+    var out_stream = stdout.outStream();
     try hq9p(&out_stream.stream, "HQ+");
 }

@@ -51,8 +51,8 @@ fn fourBitAdder(
 pub fn main() void {
     const T = u32;
 
-    const one: T = @maxValue(T);
-    const zero: T = @minValue(T);
+    const one: T = std.math.maxInt(T);
+    const zero: T = std.math.minInt(T);
 
     var a0 = zero;
     var a1 = one;

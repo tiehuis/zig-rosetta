@@ -8,7 +8,7 @@ fn nQueens(nn: usize) usize {
     }
 
     const ulen = usize.bit_count;
-    const full = @maxValue(usize) - ((usize(1) << @intCast(u6, (ulen - nn))) - 1);
+    const full = std.math.maxInt(usize) - ((usize(1) << @intCast(u6, (ulen - nn))) - 1);
     const n = nn - 3;
 
     var l: [32]usize = undefined;
